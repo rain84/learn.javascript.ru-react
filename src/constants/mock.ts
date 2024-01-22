@@ -1,16 +1,4 @@
-type TMenu = { id: string; name: string; price: number; ingredients: string[] }
-type TReview = {
-  id: string
-  user: string
-  text: string
-  rating: number
-}
-type TRestaurant = {
-  id: string
-  name: string
-  menu: TMenu[]
-  reviews: TReview[]
-}
+import { type TRestaurant } from './restaurant.types'
 
 export const restaurants: TRestaurant[] = [
   {
