@@ -1,0 +1,24 @@
+.menu {
+  text-align: center;
+}
+
+.ingredient {
+  margin-right: 5px;
+  color: rgb(255, 119, 0);
+  
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.price {
+  float: right;
+  font-size: 1.2em;
+  color: rgb(66, 123, 66);
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(255, 55, 0);
+}
