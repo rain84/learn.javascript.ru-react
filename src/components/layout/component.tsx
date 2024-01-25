@@ -6,7 +6,7 @@ export const Layout = ({ children, className }: Props) => {
   return (
     <div className={className}>
       <Header />
-      <div>{children}</div>
+      <main>{children}</main>
       <Footer />
     </div>
   )
