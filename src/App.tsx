@@ -1,16 +1,12 @@
+import { Restaurants } from 'components/restaurants'
 import { Layout } from './components/layout/component'
-import { Restaurant } from './components/restaurant/component'
 import { restaurants } from './constants/mock'
-import styles from './styles/layout-restaurant.module.scss'
+import styles from './styles/app.module.scss'
 
 export const App = () => {
   return (
     <Layout className={styles.layout}>
-      <div className={styles.container}>
-        {restaurants.map(({ id, ...restaurant }) => (
-          <Restaurant key={id} {...restaurant} />
-        ))}
-      </div>
+      <Restaurants restaurants={restaurants} />
     </Layout>
   )
 }

@@ -1,8 +1,12 @@
+export type TIngredients = string[]
+
+export type TTDish = Pick<TMenu, 'name' | 'price' | 'ingredients'>
+
 export type TMenu = {
   id: string
   name: string
   price: number
-  ingredients: string[]
+  ingredients: TIngredients
 }
 
 export type TReview = {

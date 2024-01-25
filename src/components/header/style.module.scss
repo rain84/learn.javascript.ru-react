@@ -1,0 +1,24 @@
+.container {
+  align-items: stretch;
+  height: 9rem;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: inherit;
+  display: flex;
+  position: fixed;
+  background-color: #fff4ed;
+}
+
+.title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-center {
+  text-align: center;
+}
