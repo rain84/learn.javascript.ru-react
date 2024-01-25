@@ -3,7 +3,7 @@ import { TReview } from 'constants/restaurant.types'
 
 export const Rating = ({ rating }: TProps) => {
   return (
-    <span className={styles.rating}>{Array(rating).fill('⭐️').join(' ')}</span>
+    <span className={styles.root}>{Array(rating).fill('⭐️').join(' ')}</span>
   )
 }
 

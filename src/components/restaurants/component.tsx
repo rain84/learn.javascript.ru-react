@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 
 export const Restaurants = ({ restaurants }: TProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       {restaurants.map(({ id, ...restaurant }) => (
         <Restaurant key={id} {...restaurant} />
       ))}
