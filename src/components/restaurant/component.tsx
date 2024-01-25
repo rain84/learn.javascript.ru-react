@@ -9,7 +9,7 @@ export const Restaurant = ({
   reviews,
 }: Omit<TRestaurant, 'id'>) => {
   return (
-    <section className={styles.restaurant}>
+    <section className={styles.root}>
       <h1>Name: {name}</h1>
       <Menu menu={menu} />
       <Reviews reviews={reviews} />
