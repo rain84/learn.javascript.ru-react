@@ -3,9 +3,9 @@ import { Ordering } from 'components/ordering'
 import { type TTDish } from 'constants/restaurant.types'
 import styles from './style.module.scss'
 
-export const Dish = ({ dish }: TProps) => {
+export const Dish = ({ dish, className }: TProps) => {
   return (
-    <div>
+    <div className={className}>
       <p className={styles.info}>
         <span className={styles.name}>{dish.name}</span>
         <Ordering className={styles.ordering} />
@@ -18,4 +18,5 @@ export const Dish = ({ dish }: TProps) => {
 
 type TProps = {
   dish: TTDish
+  className?: string
 }
