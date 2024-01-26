@@ -11,6 +11,7 @@ export const Tabs = ({ items, className, children }: TProps) => {
   return (
     <TabsContext.Provider value={{ active }}>
       <div className={className}>
+        {/* tabs captions */}
         <ul className={styles.tabs}>
           {items.map(({ name }, i) => (
             <li
@@ -24,6 +25,8 @@ export const Tabs = ({ items, className, children }: TProps) => {
             </li>
           ))}
         </ul>
+
+        {/* content of active tab */}
         <div>{children}</div>
       </div>
     </TabsContext.Provider>

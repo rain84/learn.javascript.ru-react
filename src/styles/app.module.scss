@@ -1,3 +1,11 @@
 .layout {
-    padding: 0 40px;
+    padding: 0 var(--app-padding);
+}
+
+.tabs {
+     margin-top: 16px;
+}
+
+.tabItems__container {
+     margin-top: 16px;
 }

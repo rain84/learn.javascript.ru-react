@@ -2,13 +2,12 @@
   align-items: stretch;
   height: 9rem;
   display: flex;
-  margin-bottom: 0.5rem;
 }
 
 .header {
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 2 * var(--app-padding));
   height: inherit;
   display: flex;
   position: fixed;
