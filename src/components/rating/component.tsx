@@ -2,40 +2,35 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import styles from './style.module.scss'
 
-export const Rating = ({
-  rating = 0,
-  canChange = false,
-  size,
-  onChange,
-}: TProps) => {
+export const Rating = ({ value = 0, editable = false, size, onChange }: TProps) => {
   const [hoveredIndex, setHoveredIndex] = useState(-1)
   const [isMouseOver, setIsMouseOver] = useState(false)
 
   return (
     <span
-      className={clsx(styles.root, canChange && styles.cursor_pointer)}
+      className={clsx(styles.root, editable && styles.cursor_pointer)}
       onMouseLeave={() => (setHoveredIndex(-1), setIsMouseOver(false))}
       onMouseOver={() => setIsMouseOver(true)}
     >
       {Array(size)
         .fill(0)
-        .map((_, index) => (
+        .map((_, i) => (
           <span
-            key={index}
+            key={i}
             className={clsx(
               styles.star,
 
               // set class for the "rating"-star
-              (!canChange || (canChange && !isMouseOver)) &&
-                index < rating &&
+              (!editable || (editable && !isMouseOver)) &&
+                i < value &&
                 styles.star_active,
 
               // set class for the hovered-stars
-              canChange && index <= hoveredIndex && styles.star_active
+              editable && i <= hoveredIndex && styles.star_active
             )}
-            onMouseEnter={() => canChange && setHoveredIndex(index)}
-            onMouseLeave={() => canChange && setHoveredIndex(index - 1)}
-            onClick={() => canChange && onChange?.(index + 1)}
+            onMouseEnter={() => editable && setHoveredIndex(i)}
+            onMouseLeave={() => editable && setHoveredIndex(i - 1)}
+            onClick={() => editable && onChange?.(i + 1)}
           >
             ⭐️
           </span>
@@ -45,9 +40,9 @@ export const Rating = ({
 }
 
 type TProps = {
-  rating: number
+  value: number
   size: number
-  canChange?: boolean
+  editable?: boolean
 
   onChange?: (rating: number) => void
 }
