@@ -5,11 +5,7 @@ import { Menu } from '../menu'
 import { Reviews } from '../reviews'
 import styles from './style.module.scss'
 
-export const Restaurant = ({
-  name,
-  menu,
-  reviews: reviews_,
-}: Omit<TRestaurant, 'id'>) => {
+export const Restaurant = ({ name, menu, reviews: reviews_ }: TRestaurant) => {
   const [reviews, setReviews] = useState(reviews_)
 
   const onSubmit = (data: TReview): void =>
