@@ -1,3 +1,21 @@
 .root {
-    float: right;
+  float: right;
+  cursor: default;
 }
+
+.star {
+    filter: grayscale(1);
+    transition-property: all;
+    cursor: inherit;
+
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+
+  &_active {
+    filter: grayscale(0);
+  }
+}
+.cursor_pointer {
+    cursor: pointer;
+  }
