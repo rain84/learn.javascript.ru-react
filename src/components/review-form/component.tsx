@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Rating } from 'components/rating'
 import { TReview } from 'constants/restaurant.types'
 import { nanoid } from 'nanoid'
 import { useReducer } from 'react'
@@ -11,17 +12,22 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
   const onChange = {
     user: (e: TEvent) => dispatch({ type: 'user', value: e.target.value }),
     text: (e: TEvent) => dispatch({ type: 'text', value: e.target.value }),
-    rating: (e: TEvent) => dispatch({ type: 'rating', value: validateRating(Number(e.target.value)),
-    }),
+    rating: (value: number) => dispatch({ type: 'rating', value }),
   }
 
   const onSubmit = () => {
+    if (!isValid(state)) {
+      alert('Some fields are missing')
+      return
+    }
+
     onSubmit_?.({ ...state, id: nanoid() })
     dispatch({ type: 'reset' })
   }
 
   return (
     <section className={clsx(styles.root, className)}>
+      <h1 className={styles.title}>Review</h1>
       <div className={styles.item}>
         <label htmlFor="user">Name</label>
         <input
@@ -44,14 +50,12 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
       </div>
 
       <div className={styles.item}>
-        <label htmlFor="text">Rating</label>
-        <input
-          name="rating"
-          type="number"
-          min={1}
-          max={5}
+        <span>Rating</span>
+        <Rating
+          size={5}
           value={state.rating}
           onChange={onChange.rating}
+          editable
         />
       </div>
 
@@ -65,7 +69,7 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
 }
 
 const INITIAL_STATE: TState = {
-  rating: 5,
+  rating: 0,
   text: '',
   user: '',
 }
@@ -85,8 +89,12 @@ const reducer = (state: TState, action: TAction) => {
   }
 }
 
-const validateRating = (rating: number) =>
-  rating < 1 ? 0 : rating > 5 ? 5 : rating
+const isValid = (state: TState) => {
+  if (!state.user) return false
+  if (!state.text) return false
+  if (!state.rating) return false
+  return true
+}
 
 type TProps = { className?: string; onSubmit?: (data: TReview) => void }
 type TState = Omit<TReview, 'id'>
