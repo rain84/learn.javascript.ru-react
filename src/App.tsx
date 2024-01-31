@@ -9,8 +9,8 @@ export const App = () => {
     <Layout className={styles.layout}>
       <Tabs items={restaurants} className={styles.tabs}>
         <div className={styles.tabItems__container}>
-          {restaurants.map(({ id, ...restaurant }, i) => (
-            <Tabs.Item key={id} index={i}>
+          {restaurants.map((restaurant, i) => (
+            <Tabs.Item key={restaurant.id} index={i}>
               <Restaurant {...restaurant} />
             </Tabs.Item>
           ))}
