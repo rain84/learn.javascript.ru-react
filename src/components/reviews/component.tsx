@@ -11,7 +11,7 @@ export const Reviews = ({ reviews }: TProps) => {
             <span>
               {user}: {text}
             </span>
-            <Rating size={5} rating={rating} />
+            <Rating size={5} value={rating} />
           </p>
         </div>
       ))}
