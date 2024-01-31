@@ -1,7 +1,7 @@
 import { Rating } from 'components/rating'
 import { type TReview } from 'constants/restaurant.types'
 
-export const Reviews = ({ reviews }: { reviews: TReview[] }) => {
+export const Reviews = ({ reviews }: TProps) => {
   return (
     <div>
       <h3>Reviews</h3>
@@ -11,10 +11,14 @@ export const Reviews = ({ reviews }: { reviews: TReview[] }) => {
             <span>
               {user}: {text}
             </span>
-            <Rating rating={rating} />
+            <Rating size={5} rating={rating} />
           </p>
         </div>
       ))}
     </div>
   )
+}
+
+type TProps = {
+  reviews: TReview[]
 }
