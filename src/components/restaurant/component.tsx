@@ -3,7 +3,7 @@ import type { TRestaurant, TReview } from 'constants/restaurant.types'
 import { useState } from 'react'
 import { Menu } from '../menu'
 import { Reviews } from '../reviews'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Restaurant = ({ name, menu, reviews: reviews_ }: TRestaurant) => {
   const [reviews, setReviews] = useState(reviews_)

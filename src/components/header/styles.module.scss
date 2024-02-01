@@ -5,8 +5,10 @@
 }
 
 .header {
+  z-index: 10;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   width: calc(100% - 2 * var(--app-padding));
   height: inherit;
   display: flex;
@@ -17,7 +19,14 @@
 .title {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-center {
   text-align: center;
+}
+
+.block__top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userAuth {
+  margin-right: 1.75rem /* 28px */;
 }

@@ -1,0 +1,24 @@
+.tabs {
+  display: flex;
+}
+
+.tab {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+
+  &:hover {
+    background-color: rgb(254 242 242);
+  }
+}
+
+.tab_active {
+  color: rgb(220 38 38);
+}
+
+.tabs__body {
+  margin-top: 16px;
+}

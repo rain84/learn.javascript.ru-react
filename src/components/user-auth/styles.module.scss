@@ -1,0 +1,38 @@
+.root {
+  display: inline-flex;
+  gap: 1rem /* 16px */;
+}
+
+.username {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  text-transform: capitalize;
+  vertical-align: middle;
+}
+
+.input {
+  width: 18rem;
+  padding: 10px;
+}
+
+.input__container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.inputs__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem /* 8px */;
+}
+
+.icon {
+  display: inline;
+  margin-top: -3px;
+}

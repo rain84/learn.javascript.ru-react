@@ -1,6 +1,6 @@
 import { Dish } from 'components/dish'
 import { type TMenu } from 'constants/restaurant.types'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Menu = ({ menu }: { menu: TMenu[] }) => {
   return (

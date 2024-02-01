@@ -1,7 +1,7 @@
 import { Ingredients } from 'components/ingredients'
 import { Ordering } from 'components/ordering'
 import { type TTDish } from 'constants/restaurant.types'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Dish = ({ dish, className }: TProps) => {
   return (

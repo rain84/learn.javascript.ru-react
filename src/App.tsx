@@ -1,21 +1,21 @@
 import { Restaurant } from 'components/restaurant'
+import { Tabs, type TComponent } from 'components/ui/tabs'
+import { AuthProvider } from 'contexts/auth'
+import { StrictMode } from 'react'
 import { Layout } from './components/layout/component'
 import { restaurants } from './constants/mock'
 import styles from './styles/app.module.scss'
-import { Tabs } from 'components/tabs'
 
 export const App = () => {
   return (
-    <Layout className={styles.layout}>
-      <Tabs items={restaurants} className={styles.tabs}>
-        <div className={styles.tabItems__container}>
-          {restaurants.map((restaurant, i) => (
-            <Tabs.Item key={restaurant.id} index={i}>
-              <Restaurant {...restaurant} />
-            </Tabs.Item>
-          ))}
-        </div>
-      </Tabs>
-    </Layout>
+    <StrictMode>
+      <AuthProvider>
+        <Layout className={styles.layout}>
+          <Tabs className={styles.tabs} items={restaurants}>
+            {Restaurant as TComponent}
+          </Tabs>
+        </Layout>
+      </AuthProvider>
+    </StrictMode>
   )
 }

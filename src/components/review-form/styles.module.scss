@@ -1,9 +1,17 @@
 .root {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 30px;
+}
+
+.container {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
-  
-  &>*:not(:last-child) {
+  align-items: stretch;
+
+  & > *:not(:last-child) {
     margin-bottom: 10px;
   }
 }
@@ -15,36 +23,25 @@
 
 .item {
   display: inline-flex;
-  width: 300px;
   justify-content: space-between;
 
-  &>*:not(:last-child) {
+  & > *:not(:last-child) {
     margin-right: 20px;
   }
 }
 
-.input, textarea {
-  border: 1px solid var(--border-color);
-}
-
 .textarea {
-  width: 220px;
-}
-
-.button {
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 5px;
-  font-weight: bold;
-
-  &:hover {
-    background-color: rgba(255, 0, 0, 0.278);
-  }
+  width: 400px;
+  margin-left: 50px;
 }
 
 .button__container {
   display: inline-flex;
   justify-content: flex-end;
   align-items: center;
-  width: 300px;
+  margin-top: 20px;
+}
+
+.rating {
+  float: right;
 }

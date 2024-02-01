@@ -1,0 +1,36 @@
+.root {
+  z-index: 9999;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.25rem /* 20px */;
+  padding: 1rem /* 16px */;
+  border-radius: 0.25rem /* 4px */;
+  background-color: #fff;
+  min-height: 8rem /* 128px */;
+  min-width: 20rem /* 320px */;
+}
+
+.modal__content {
+  width: 100%;
+}
+
+.modal__controls {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 1.25rem /* 20px */;
+  width: 100%;
+}

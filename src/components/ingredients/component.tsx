@@ -1,5 +1,5 @@
 import { type TIngredients } from 'constants/restaurant.types'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Ingredients = ({ ingredients }: TProps) => {
   return (

@@ -1,16 +1,19 @@
 import clsx from 'clsx'
-import { Rating } from 'components/rating'
+import { Button, Rating, Textarea } from 'components/ui'
 import { TReview } from 'constants/restaurant.types'
+import { useAuth } from 'contexts/auth'
 import { nanoid } from 'nanoid'
 import { useReducer } from 'react'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
+  const { isAuthorized, name } = useAuth.state()
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+
+  if (!isAuthorized) return null
 
   /* prettier-ignore */
   const onChange = {
-    user: (e: TEvent) => dispatch({ type: 'user', value: e.target.value }),
     text: (e: TEvent) => dispatch({ type: 'text', value: e.target.value }),
     rating: (value: number) => dispatch({ type: 'rating', value }),
   }
@@ -21,48 +24,40 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
       return
     }
 
-    onSubmit_?.({ ...state, id: nanoid() })
+    onSubmit_?.({ ...state, user: name, id: nanoid() })
     dispatch({ type: 'reset' })
   }
 
   return (
     <section className={clsx(styles.root, className)}>
-      <h1 className={styles.title}>Review</h1>
-      <div className={styles.item}>
-        <label htmlFor="user">Name</label>
-        <input
-          type="text"
-          name="user"
-          value={state.user}
-          className={styles.input}
-          onChange={onChange.user}
-        />
-      </div>
-
-      <div className={styles.item}>
-        <label htmlFor="text">Text</label>
-        <textarea
-          name="text"
-          className={styles.textarea}
-          value={state.text}
-          onChange={onChange.text}
-        />
-      </div>
-
-      <div className={styles.item}>
-        <span>Rating</span>
-        <Rating
-          size={5}
-          value={state.rating}
-          onChange={onChange.rating}
-          editable
-        />
-      </div>
-
-      <div className={styles.button__container}>
-        <button className={styles.button} onClick={onSubmit}>
-          Submit
-        </button>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Review</h1>
+        <div className={styles.item}>
+          <label htmlFor="user">Name</label>
+          <span>{name}</span>
+        </div>
+        <div className={styles.item}>
+          <label htmlFor="text">Text</label>
+          <Textarea
+            name="text"
+            className={styles.textarea}
+            value={state.text}
+            onChange={onChange.text}
+          />
+        </div>
+        <div className={styles.item}>
+          <span>Rating</span>
+          <Rating
+            className={styles.rating}
+            size={5}
+            value={state.rating}
+            onChange={onChange.rating}
+            editable
+          />
+        </div>
+        <div className={styles.button__container}>
+          <Button onClick={onSubmit}>Submit</Button>
+        </div>
       </div>
     </section>
   )
@@ -71,13 +66,10 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
 const INITIAL_STATE: TState = {
   rating: 0,
   text: '',
-  user: '',
 }
 
 const reducer = (state: TState, action: TAction) => {
   switch (action.type) {
-    case 'user':
-      return { ...state, user: action.value }
     case 'text':
       return { ...state, text: action.value }
     case 'rating':
@@ -90,16 +82,14 @@ const reducer = (state: TState, action: TAction) => {
 }
 
 const isValid = (state: TState) => {
-  if (!state.user) return false
   if (!state.text) return false
   if (!state.rating) return false
   return true
 }
 
 type TProps = { className?: string; onSubmit?: (data: TReview) => void }
-type TState = Omit<TReview, 'id'>
+type TState = Omit<TReview, 'id' | 'user'>
 type TAction =
-  | { type: 'user'; value: string }
   | { type: 'text'; value: string }
   | { type: 'rating'; value: number }
   | { type: 'reset' }

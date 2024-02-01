@@ -1,6 +1,6 @@
 import type { Icon } from 'app.types'
 import clsx from 'clsx'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Button = ({ className, disabled, Icon, onClick }: TProps) => (
   <button

@@ -1,0 +1,13 @@
+.root {
+  text-align: center;
+  border-width: 1px;
+  border-radius: 0.25rem /* 4px */;
+  border-color: rgb(51 65 85);
+
+  &:focus {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px inset,
+      rgb(254, 205, 211) 0px 0px 0px 2px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}

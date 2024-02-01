@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import { Minus } from './buttons/minus'
 import { Plus } from './buttons/plus'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
 export const Ordering = ({ max = 5, className, onChange }: TProps) => {
   const [ordering, setOrdering] = useState(0)

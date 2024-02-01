@@ -1,14 +1,24 @@
 import clsx from 'clsx'
 import { useState } from 'react'
-import styles from './style.module.scss'
+import styles from './styles.module.scss'
 
-export const Rating = ({ value = 0, editable = false, size, onChange }: TProps) => {
+export const Rating = ({
+  className,
+  value = 0,
+  editable = false,
+  size,
+  onChange,
+}: TProps) => {
   const [hoveredIndex, setHoveredIndex] = useState(-1)
   const [isMouseOver, setIsMouseOver] = useState(false)
 
   return (
     <span
-      className={clsx(styles.root, editable && styles.cursor_pointer)}
+      className={clsx(
+        styles.root,
+        editable && styles.cursor_pointer,
+        className
+      )}
       onMouseLeave={() => (setHoveredIndex(-1), setIsMouseOver(false))}
       onMouseOver={() => setIsMouseOver(true)}
     >
@@ -43,6 +53,7 @@ type TProps = {
   value: number
   size: number
   editable?: boolean
+  className?: string
 
   onChange?: (rating: number) => void
 }

@@ -1,0 +1,15 @@
+.root {
+  padding: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-color: var(--border-color-dark);
+  border-width: 1px;
+  border-radius: 0.25rem;
+
+  &:focus {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px inset,
+      rgb(254, 205, 211) 0px 0px 0px 2px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}

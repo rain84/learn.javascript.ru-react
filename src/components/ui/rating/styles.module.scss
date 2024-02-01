@@ -1,12 +1,11 @@
 .root {
-  float: right;
   cursor: default;
 }
 
 .star {
-    filter: grayscale(1);
-    transition-property: all;
-    cursor: inherit;
+  filter: grayscale(1);
+  transition-property: all;
+  cursor: inherit;
 
   &:not(:last-child) {
     margin-right: 4px;
@@ -17,5 +16,5 @@
   }
 }
 .cursor_pointer {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
