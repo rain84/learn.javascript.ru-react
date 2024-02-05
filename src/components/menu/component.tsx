@@ -1,13 +1,13 @@
 import { Dish } from 'components/dish'
-import { type TMenu } from 'constants/restaurant.types'
+import { type TRestaurant } from 'constants/normalized-mock'
 import styles from './styles.module.scss'
 
-export const Menu = ({ menu }: { menu: TMenu[] }) => {
+export const Menu = ({ menu }: { menu: TRestaurant['menu'] }) => {
   return (
     <div>
       <h3 className={styles.title}>Menu</h3>
-      {menu.map(({ id, ...dish }) => (
-        <Dish key={id} dish={dish} className={styles.dish} />
+      {menu.map((id) => (
+        <Dish key={id} id={id} className={styles.dish} />
       ))}
     </div>
   )
