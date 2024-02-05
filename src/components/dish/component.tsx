@@ -1,9 +1,15 @@
 import { Ingredients } from 'components/ingredients'
 import { Ordering } from 'components/ordering'
-import { type TTDish } from 'constants/restaurant.types'
+import { useSelector } from 'react-redux'
+import { dishSelectors } from 'redux_/entities/dish'
 import styles from './styles.module.scss'
+import { RootState } from 'redux_'
 
-export const Dish = ({ dish, className }: TProps) => {
+export const Dish = ({ id, className }: TProps) => {
+  const dish = useSelector((state: RootState) =>
+    dishSelectors.selectById(state, id)
+  )
+
   return (
     <div className={className}>
       <p className={styles.info}>
@@ -17,6 +23,6 @@ export const Dish = ({ dish, className }: TProps) => {
 }
 
 type TProps = {
-  dish: TTDish
+  id: string
   className?: string
 }

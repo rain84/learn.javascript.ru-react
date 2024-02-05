@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { Button, Rating, Textarea } from 'components/ui'
-import { TReview } from 'constants/restaurant.types'
+import { TReview } from 'constants/normalized-mock'
 import { useAuth } from 'contexts/auth'
 import { nanoid } from 'nanoid'
 import { useReducer } from 'react'
@@ -24,7 +24,7 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
       return
     }
 
-    onSubmit_?.({ ...state, user: name, id: nanoid() })
+    onSubmit_?.({ ...state, name, id: nanoid() })
     dispatch({ type: 'reset' })
   }
 
@@ -33,8 +33,7 @@ export const ReviewForm = ({ className, onSubmit: onSubmit_ }: TProps) => {
       <div className={styles.container}>
         <h1 className={styles.title}>Review</h1>
         <div className={styles.item}>
-          <label htmlFor="user">Name</label>
-          <span>{name}</span>
+          <span>Name: {name}</span>
         </div>
         <div className={styles.item}>
           <label htmlFor="text">Text</label>
@@ -87,8 +86,11 @@ const isValid = (state: TState) => {
   return true
 }
 
-type TProps = { className?: string; onSubmit?: (data: TReview) => void }
-type TState = Omit<TReview, 'id' | 'user'>
+type TProps = {
+  className?: string
+  onSubmit?: (data: TState & Record<'name' | 'id', string>) => void
+}
+type TState = Omit<TReview, 'id' | 'userId'>
 type TAction =
   | { type: 'text'; value: string }
   | { type: 'rating'; value: number }
