@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import type { FC, SetStateAction } from 'react'
+import type { FC, ReactNode, SetStateAction } from 'react'
 import { createContext, useState } from 'react'
 import styles from './styles.module.scss'
 
@@ -43,5 +43,11 @@ export type TComponent = FC<{
 type TProps = {
   items: ({ name: string } & { [K in string]: unknown })[]
   className?: string
-  children: TComponent
+  children: TChildren
+}
+
+// const Restaurant: ({ name, menu, reviews: reviews_ }: TRestaurant) => JSX.Element
+
+interface TChildren {
+  (props: { [K in string]: unknown }): ReactNode
 }
