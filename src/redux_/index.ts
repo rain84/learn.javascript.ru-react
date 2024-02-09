@@ -8,5 +8,5 @@ export const store = configureStore({
   reducer: combineSlices(restaurantSlice, dishSlice, reviewSlice, userSlice),
 })
 
-export type RootState = ReturnType<typeof store.getState>
+export type TRootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
