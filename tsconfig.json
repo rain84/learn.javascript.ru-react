@@ -25,6 +25,6 @@
       "*": ["*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "simple_api/server.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
