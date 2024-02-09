@@ -3,12 +3,9 @@ import { Ordering } from 'components/ordering'
 import { useSelector } from 'react-redux'
 import { dishSelectors } from 'redux_/entities/dish'
 import styles from './styles.module.scss'
-import { RootState } from 'redux_'
 
 export const Dish = ({ id, className }: TProps) => {
-  const dish = useSelector((state: RootState) =>
-    dishSelectors.selectById(state, id)
-  )
+  const dish = useSelector(dishSelectors.selectById(id))
 
   return (
     <div className={className}>
