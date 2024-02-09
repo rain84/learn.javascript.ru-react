@@ -1,6 +1,6 @@
 import { Layout } from 'components/layout'
 import { Restaurant } from 'components/restaurant'
-import { Tabs, type TComponent } from 'components/ui/tabs'
+import { Tabs } from 'components/ui/tabs'
 import { AuthProvider } from 'contexts/auth'
 import { useSelector } from 'react-redux'
 import { restaurantSelectors } from 'redux_/entities/restaurant'
@@ -13,7 +13,7 @@ export const App = () => {
     <AuthProvider>
       <Layout className={styles.layout}>
         <Tabs className={styles.tabs} items={Object.values(restaurants)}>
-          {Restaurant as TComponent}
+          {Restaurant}
         </Tabs>
       </Layout>
     </AuthProvider>
