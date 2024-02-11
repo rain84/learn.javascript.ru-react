@@ -11,7 +11,7 @@ export const Dish = ({ id, className }: TProps) => {
     <div className={className}>
       <p className={styles.info}>
         <span className={styles.name}>{dish.name}</span>
-        <Ordering className={styles.ordering} />
+        <Ordering className={styles.ordering} productId={id} />
         <span className={styles.price}>Price: {dish.price} $</span>
       </p>
       <Ingredients ingredients={dish.ingredients} />
