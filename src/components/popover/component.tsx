@@ -1,8 +1,8 @@
 import clsx from 'clsx'
+import { useDOMListener } from 'hooks'
 import { useCallback, useRef, useState, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import { useContainer } from './hooks/use-container'
-import { useDOMListener } from './hooks/use-dom-listener'
 import { useSetPosition } from './hooks/use-set-position'
 import styles from './styles.module.scss'
 
