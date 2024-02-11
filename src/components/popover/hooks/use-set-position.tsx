@@ -1,6 +1,6 @@
 import { useLayoutEffect, type RefObject } from 'react'
 
-export const useSetPopoverPosition: THook = (containerRef, modalRef) => {
+export const useSetPosition: THook = (containerRef, modalRef) => {
   useLayoutEffect(() => {
     if (!containerRef.current || !modalRef.current) return
     const targetNode = containerRef.current

@@ -1,6 +1,6 @@
 import { useLayoutEffect, type RefObject } from 'react'
 
-export const useCheckContainer: THook = (isVisible, containerRef) => {
+export const useContainer: THook = (isVisible, containerRef) => {
   useLayoutEffect(() => {
     if (!containerRef.current) return
 

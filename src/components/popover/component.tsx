@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { useCallback, useRef, useState, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
-import { useCheckContainer } from './hooks/use-check-container'
+import { useContainer } from './hooks/use-container'
 import { useDOMListener } from './hooks/use-dom-listener'
-import { useSetPopoverPosition } from './hooks/use-set-popover-position'
+import { useSetPosition } from './hooks/use-set-position'
 import styles from './styles.module.scss'
 
 export const Popover = ({ className, children, containerRef }: TProps) => {
@@ -15,8 +15,8 @@ export const Popover = ({ className, children, containerRef }: TProps) => {
 
   useDOMListener(containerRef, 'mouseenter', onMouseEnter)
   useDOMListener(containerRef, 'mouseleave', onMouseLeave)
-  useSetPopoverPosition(containerRef, modalRef)
-  useCheckContainer(isVisible, containerRef)
+  useSetPosition(containerRef, modalRef)
+  useContainer(isVisible, containerRef)
 
   if (!isVisible || !containerRef.current) return null
 
