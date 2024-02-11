@@ -15,9 +15,11 @@ export const Cart = ({ className }: TProps) => {
       <span>
         Корзина: <span className={styles.total}>{totalAmount}</span>
       </span>
-      <Popover className={styles.popover} containerRef={ref}>
-        <Items />
-      </Popover>
+      {totalAmount > 0 && (
+        <Popover className={styles.popover} containerRef={ref}>
+          <Items />
+        </Popover>
+      )}
     </div>
   )
 }

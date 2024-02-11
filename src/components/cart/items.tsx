@@ -1,35 +1,25 @@
 import { TrashIcon } from '@radix-ui/react-icons'
+import { Dish } from 'components/dish'
 import { useDispatch, useSelector } from 'react-redux'
-import { dishSelectors } from 'redux_/entities/dish'
 import { cartActions, cartSelectors } from 'redux_/ui/cart'
 import styles from './styles.module.scss'
-import clsx from 'clsx'
 
-export const Items = ({ className }: TProps) => {
+export const Items = () => {
   const carts = useSelector(cartSelectors.selectModule)
-  const dishes = useSelector(dishSelectors.selectAll)
+  const totalPrice = useSelector(cartSelectors.selectTotalPrice)
 
   const dispatch = useDispatch()
   const onClick = (id: string) => () => dispatch(cartActions.delete(id))
 
   return (
-    <div className={className}>
-      {Object.entries(carts).map(([id, count]) => (
-        <p className={styles.items}>
-          <span>{dishes[id].name}:</span>
-          <span className={styles.icon_container}>
-            <span>{count}</span>
-            <TrashIcon
-              onClick={onClick(id)}
-              className={clsx(styles.icon_trash)}
-            />
-          </span>
-        </p>
+    <div>
+      {Object.keys(carts).map((id) => (
+        <div key={id} className={styles.item}>
+          <Dish id={id} showIngredients={false} />
+          <TrashIcon onClick={onClick(id)} className={styles.icon_trash} />
+        </div>
       ))}
+      <p className={styles.totalPrice}>Total price: {totalPrice}</p>
     </div>
   )
-}
-
-type TProps = {
-  className?: string
 }

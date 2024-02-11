@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { dishSelectors } from 'redux_/entities/dish'
 import styles from './styles.module.scss'
 
-export const Dish = ({ id, className }: TProps) => {
+export const Dish = ({ id, className, showIngredients = true }: TProps) => {
   const dish = useSelector(dishSelectors.selectById(id))
 
   return (
@@ -14,7 +14,7 @@ export const Dish = ({ id, className }: TProps) => {
         <Ordering className={styles.ordering} productId={id} />
         <span className={styles.price}>Price: {dish.price} $</span>
       </p>
-      <Ingredients ingredients={dish.ingredients} />
+      {showIngredients && <Ingredients ingredients={dish.ingredients} />}
     </div>
   )
 }
@@ -22,4 +22,5 @@ export const Dish = ({ id, className }: TProps) => {
 type TProps = {
   id: string
   className?: string
+  showIngredients: boolean
 }

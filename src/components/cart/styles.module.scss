@@ -4,21 +4,33 @@
   text-align: right;
 }
 
-.items {
-  display: flex;
-  justify-content: space-between;
+.popover {
+  width: 500px;
 }
 
-.icon_container {
+.item {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.088);
+  }
 }
 
 .icon_trash {
   border: 1px solid var(--border-color-dark);
   border-radius: 0.25rem;
-  margin-left: 2rem;
-  transform: scale(1.25);
-  // padding: 0.25rem;
+  margin-left: 1rem;
+  transform: scale(1.5);
+  position: relative;
+  right: 0.5rem;
+}
+
+.totalPrice {
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
 }
