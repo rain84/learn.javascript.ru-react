@@ -13,4 +13,8 @@ const selectTotalAmount = (state: TRootState) =>
       )
     : 0
 
-export const cartSelectors = { selectProductAmountById, selectTotalAmount }
+export const cartSelectors = {
+  selectProductAmountById,
+  selectTotalAmount,
+  selectModule,
+}

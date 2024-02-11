@@ -4,5 +4,21 @@
   text-align: right;
 }
 
-.popover {
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icon_trash {
+  border: 1px solid var(--border-color-dark);
+  border-radius: 0.25rem;
+  margin-left: 2rem;
+  transform: scale(1.25);
+  // padding: 0.25rem;
 }

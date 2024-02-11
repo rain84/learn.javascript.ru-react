@@ -1,6 +1,6 @@
 .root {
   align-items: stretch;
-  height: 9rem;
+  height: 7rem;
   display: flex;
 }
 
@@ -14,19 +14,31 @@
   display: flex;
   position: fixed;
   background-color: #fff4ed;
+  padding: 0 20px;
 }
 
 .title {
   font-size: 1.875rem;
   line-height: 2.25rem;
   text-align: center;
+  flex-grow: 1;
 }
 
 .block__top {
   display: flex;
+  justify-content: space-between;
+}
+
+.controls {
   justify-content: flex-end;
 }
 
 .userAuth {
-  margin-right: 1.75rem /* 28px */;
+}
+
+.cart {
+  margin-top: 0.5rem /* 8px */;
+  &:hover {
+    cursor: pointer;
+  }
 }

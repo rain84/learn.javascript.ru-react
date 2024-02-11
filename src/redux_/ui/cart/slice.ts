@@ -14,6 +14,9 @@ export const cartSlice = createSlice({
         delete state[productId]
       }
     },
+    delete: (state, { payload: productId }) => {
+      delete state[productId]
+    },
   },
 })
 

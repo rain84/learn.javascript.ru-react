@@ -3,6 +3,7 @@ import { Popover } from 'components/popover'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { cartSelectors } from 'redux_/ui/cart'
+import { Items } from './items'
 import styles from './styles.module.scss'
 
 export const Cart = ({ className }: TProps) => {
@@ -15,7 +16,7 @@ export const Cart = ({ className }: TProps) => {
         Корзина: <span className={styles.total}>{totalAmount}</span>
       </span>
       <Popover className={styles.popover} containerRef={ref}>
-        Popover
+        <Items />
       </Popover>
     </div>
   )
