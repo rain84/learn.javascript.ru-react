@@ -8,11 +8,9 @@ export const restaurantSlice = createSlice({
   initialState: entityAdapter.getInitialState(),
   reducers: {},
   extraReducers: (builder) =>
-    builder
-      .addCase(getRestaurants.fulfilled, (state, { payload }) => {
-        entityAdapter.setAll(state, payload)
-      })
-      .addCase(getRestaurants.rejected, () => {}),
+    builder.addCase(getRestaurants.fulfilled, (state, { payload }) => {
+      entityAdapter.setAll(state, payload)
+    }),
 })
 
 export type TRestaurant = {

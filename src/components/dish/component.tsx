@@ -22,5 +22,5 @@ export const Dish = ({ id, className, showIngredients = true }: TProps) => {
 type TProps = {
   id: string
   className?: string
-  showIngredients: boolean
+  showIngredients?: boolean
 }
